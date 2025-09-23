@@ -19,30 +19,30 @@ class BoardArray : public Board {
                 return;
             }
             
-            int pos = index;
+            int position = index;
             for (int i = 0; i < index; i++) {
                 if (entry->compare(&array[i])) {
-                    pos = i;
+                    position = i;
                     break;
                 }
             }
 
-            if (index == SIZE && pos == index) {
+            if (index == SIZE && position == index) {
                 cout << entry->name << "'s score is too low to be added!" << endl;
                 return;
             }
 
             if (index < SIZE) {
-                for (int j = index; j > pos; j--) {
+                for (int j = index; j > position; j--) {
                     array[j] = array[j - 1];
                 }
-                array[pos] = *entry;
+                array[position] = *entry;
                 index++;
             } else {
-                for (int j = SIZE - 1; j > pos; j--) {
+                for (int j = SIZE - 1; j > position; j--) {
                     array[j] = array[j - 1];
                 }
-                array[pos] = *entry;
+                array[position] = *entry;
             }
         }
         void print() {
